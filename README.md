@@ -1,4 +1,4 @@
-# Cmlccie Tap
+# cmlccie Tap
 
 ## How do I install these formulae?
 
