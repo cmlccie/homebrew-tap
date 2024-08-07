@@ -1,21 +1,21 @@
 class Awsipranges < Formula
   desc "Quickly query the AWS IP Ranges"
   homepage "https://github.com/cmlccie/awsipranges"
-  version "0.6.1"
+  version "0.7.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/cmlccie/awsipranges/releases/download/v0.6.1/awsipranges-aarch64-apple-darwin.tar.xz"
-      sha256 "df9bbb20074a348409298dc9840fb6a7febf700fa35cb358b667c91232995c87"
+      url "https://github.com/cmlccie/awsipranges/releases/download/v0.7.0/awsipranges-aarch64-apple-darwin.tar.xz"
+      sha256 "6096be6b8b6260c9a1d2b58944e3ef730c02f07d6dcb1472bdea12a3e0d23f68"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/cmlccie/awsipranges/releases/download/v0.6.1/awsipranges-x86_64-apple-darwin.tar.xz"
-      sha256 "0b489b3f994ddbefbb58c58ea93c9217e4acfbd8cd334af23c709ce0746cd644"
+      url "https://github.com/cmlccie/awsipranges/releases/download/v0.7.0/awsipranges-x86_64-apple-darwin.tar.xz"
+      sha256 "51b0ead11f7a88ac5cc6dc8e1664399ebfd623b76af9ce98d7d9f8438cf897ea"
     end
   end
   if OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/cmlccie/awsipranges/releases/download/v0.6.1/awsipranges-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "4f4f7f5349fa4a6bba184be0f21afbf0b3999f9edde4bd9783c99e1825ce5e87"
+      url "https://github.com/cmlccie/awsipranges/releases/download/v0.7.0/awsipranges-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "bb540a86c2a8f05b8273ba48c19d684f662f9fff0a5446136cee6a26f1cda129"
     end
   end
   license "BSD-2-Clause-Patent"
