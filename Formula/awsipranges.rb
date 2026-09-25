@@ -1,31 +1,40 @@
 class Awsipranges < Formula
   desc "Quickly query the AWS IP Ranges"
   homepage "https://github.com/cmlccie/awsipranges"
-  version "0.8.1"
+  version "0.9.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/cmlccie/awsipranges/releases/download/v0.8.1/awsipranges-aarch64-apple-darwin.tar.xz"
-      sha256 "343a9cc06bf81fcece7a78078e8f986aa435f5a03c8f6ac408edcb338be0ce74"
+      url "https://github.com/cmlccie/awsipranges/releases/download/v0.9.0/awsipranges-aarch64-apple-darwin.tar.xz"
+      sha256 "b2e3cdb51ecfd5c82d56aec267fb075322fae3f982119a32875faaa979dbec27"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/cmlccie/awsipranges/releases/download/v0.8.1/awsipranges-x86_64-apple-darwin.tar.xz"
-      sha256 "004c0729a1de53920ee7c17c4ae84618e967fbfb458053e052f69306c456c682"
+      url "https://github.com/cmlccie/awsipranges/releases/download/v0.9.0/awsipranges-x86_64-apple-darwin.tar.xz"
+      sha256 "0e13bc8415b56e23e9dea3add8a1715a80e92504ae9d573d92a92afe33c1f2d7"
     end
   end
   if OS.linux?
+    if Hardware::CPU.arm?
+      url "https://github.com/cmlccie/awsipranges/releases/download/v0.9.0/awsipranges-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "4de18140536b266aa609fa13ddedd48c5976aa1c9dea3841d0392d8cdeb91b9b"
+    end
     if Hardware::CPU.intel?
-      url "https://github.com/cmlccie/awsipranges/releases/download/v0.8.1/awsipranges-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "1c39ab0fa4298f3fa767e91f41c4d2e45d7fda3dfd3521910d961082e6caae49"
+      url "https://github.com/cmlccie/awsipranges/releases/download/v0.9.0/awsipranges-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "ba6c15cb5e1ba85290fbd525b4197a68be53f6ad892597b634b5797380ef057f"
     end
   end
   license "BSD-2-Clause-Patent"
 
   BINARY_ALIASES = {
-    "aarch64-apple-darwin": {},
-    "x86_64-apple-darwin": {},
-    "x86_64-pc-windows-gnu": {},
-    "x86_64-unknown-linux-gnu": {}
-  }
+    "aarch64-apple-darwin":               {},
+    "aarch64-unknown-linux-gnu":          {},
+    "aarch64-unknown-linux-musl-dynamic": {},
+    "aarch64-unknown-linux-musl-static":  {},
+    "x86_64-apple-darwin":                {},
+    "x86_64-pc-windows-gnu":              {},
+    "x86_64-unknown-linux-gnu":           {},
+    "x86_64-unknown-linux-musl-dynamic":  {},
+    "x86_64-unknown-linux-musl-static":   {},
+  }.freeze
 
   def target_triple
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
@@ -47,6 +56,9 @@ class Awsipranges < Formula
       bin.install "awsipranges"
     end
     if OS.mac? && Hardware::CPU.intel?
+      bin.install "awsipranges"
+    end
+    if OS.linux? && Hardware::CPU.arm?
       bin.install "awsipranges"
     end
     if OS.linux? && Hardware::CPU.intel?
